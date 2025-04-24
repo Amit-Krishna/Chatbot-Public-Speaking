@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Public Speaking Assistant</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-header">
+                <h2>AI Speaker Coach</h2>
+                <button class="new-chat-btn">+ New Chat</button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#">Chat History (Demo)</a></li>
+                    <li><a href="#">Settings (Demo)</a></li>
+                    <!-- Add more history items here later -->
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p class="creators">Created by: Amit, Sargun & Sravan</p>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main id="chat-window">
+            <header class="chat-header">
+                <!-- Toggle Button for Sidebar (ALWAYS VISIBLE) -->
+                <button id="main-sidebar-toggle" title="Toggle Sidebar">
+                    <i class="fas fa-bars"></i> <!-- Initial icon state managed by JS -->
+                </button>
+                <h1>AI Public Speaking Assistant</h1>
+            </header>
+
+            <div id="chat-box">
+                <!-- Initial Message -->
+                <div class="message bot-message">
+                    <div class="avatar bot-avatar"><i class="fas fa-robot"></i></div>
+                    <div class="message-content">
+                        <p>Hello! Ask me anything about how **AI** can help you *improve* your public speaking skills.</p>
+                    </div>
+                </div>
+                <!-- Chat messages will be appended here by JS -->
+            </div>
+
+            <div id="input-container">
+                <div class="input-wrapper">
+                    <textarea id="user-input" placeholder="Send a message..." rows="1"></textarea>
+                    <button id="send-button" title="Send Message" disabled> <!-- Start disabled -->
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div id="loading-indicator" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i> Thinking...
+                </div>
+                <p class="model-info">Powered by Gemini 1.5 Flash</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
